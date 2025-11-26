@@ -103,7 +103,7 @@ CREATE OR REPLACE SEMANTIC VIEW SV_STUDENT_CERTIFICATION_INTELLIGENCE
     enrollments.enrollment_date AS enrollment_date
       WITH SYNONYMS ('registration date', 'signup date')
       COMMENT = 'Date of enrollment',
-    enrollments.is_exam_eligible AS exam_eligible
+    enrollments.exam_eligible AS is_exam_eligible
       WITH SYNONYMS ('ready for exam', 'can take exam')
       COMMENT = 'Whether student is eligible to take exam',
     enrollments.payment_plan AS payment_plan
@@ -119,7 +119,7 @@ CREATE OR REPLACE SEMANTIC VIEW SV_STUDENT_CERTIFICATION_INTELLIGENCE
     certification_types.certification_category AS cert_category
       WITH SYNONYMS ('program category', 'credential type')
       COMMENT = 'Category: PRIMARY, SPECIALIZATION',
-    certification_types.is_ncca_accredited AS ncca_accredited
+    certification_types.ncca_accredited AS is_ncca_accredited
       WITH SYNONYMS ('accredited', 'ncca certified')
       COMMENT = 'Whether certification is NCCA accredited',
     -- Exam dimensions
@@ -129,7 +129,7 @@ CREATE OR REPLACE SEMANTIC VIEW SV_STUDENT_CERTIFICATION_INTELLIGENCE
     exams.passed AS exam_passed
       WITH SYNONYMS ('passed exam', 'exam success')
       COMMENT = 'Whether student passed the exam',
-    exams.is_certified AS certified_status
+    exams.certified_status AS is_certified
       WITH SYNONYMS ('certification issued', 'credential awarded')
       COMMENT = 'Whether certification was issued',
     exams.attempt_number AS exam_attempt
@@ -273,7 +273,7 @@ CREATE OR REPLACE SEMANTIC VIEW SV_REVENUE_OPERATIONS_INTELLIGENCE
     orders.channel AS order_channel
       WITH SYNONYMS ('sales channel', 'purchase channel')
       COMMENT = 'Channel: WEBSITE, MOBILE_APP, PHONE, CHAT',
-    orders.is_payment_plan AS has_payment_plan
+    orders.has_payment_plan AS is_payment_plan
       WITH SYNONYMS ('financed', 'installment purchase')
       COMMENT = 'Whether order uses payment plan',
     orders.promo_code AS promo_code
@@ -289,7 +289,7 @@ CREATE OR REPLACE SEMANTIC VIEW SV_REVENUE_OPERATIONS_INTELLIGENCE
     products.product_category AS product_category
       WITH SYNONYMS ('item category', 'product group')
       COMMENT = 'Product category',
-    products.is_subscription AS is_subscription_product
+    products.subscription_product AS is_subscription
       WITH SYNONYMS ('recurring product', 'subscription item')
       COMMENT = 'Whether product is subscription-based',
     -- Subscription dimensions
