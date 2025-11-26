@@ -110,13 +110,13 @@ CREATE OR REPLACE SEMANTIC VIEW SV_STUDENT_CERTIFICATION_INTELLIGENCE
       WITH SYNONYMS ('financing option', 'installment plan')
       COMMENT = 'Payment plan if applicable',
     -- Certification type dimensions
-    certification_types.certification_code AS cert_code
+    certification_types.cert_code AS certification_code
       WITH SYNONYMS ('program code', 'credential code')
       COMMENT = 'Certification code: CPT, CES, PES, etc.',
-    certification_types.certification_name AS cert_name
+    certification_types.cert_name AS certification_name
       WITH SYNONYMS ('program name', 'credential name')
       COMMENT = 'Full certification name',
-    certification_types.certification_category AS cert_category
+    certification_types.cert_category AS certification_category
       WITH SYNONYMS ('program category', 'credential type')
       COMMENT = 'Category: PRIMARY, SPECIALIZATION',
     certification_types.ncca_accredited AS is_ncca_accredited
@@ -126,20 +126,20 @@ CREATE OR REPLACE SEMANTIC VIEW SV_STUDENT_CERTIFICATION_INTELLIGENCE
     exams.exam_type AS exam_type
       WITH SYNONYMS ('test type', 'exam format')
       COMMENT = 'Exam type: ONLINE, IN_PERSON',
-    exams.passed AS exam_passed
+    exams.exam_passed AS passed
       WITH SYNONYMS ('passed exam', 'exam success')
       COMMENT = 'Whether student passed the exam',
     exams.certified_status AS is_certified
       WITH SYNONYMS ('certification issued', 'credential awarded')
       COMMENT = 'Whether certification was issued',
-    exams.attempt_number AS exam_attempt
+    exams.exam_attempt AS attempt_number
       WITH SYNONYMS ('try number', 'attempt count')
       COMMENT = 'Which attempt this was',
     -- Certification dimensions
-    certifications.certification_status AS credential_status
+    certifications.credential_status AS certification_status
       WITH SYNONYMS ('cert status', 'certification state')
       COMMENT = 'Status: ACTIVE, EXPIRING_SOON, EXPIRED',
-    certifications.expiry_date AS cert_expiry_date
+    certifications.cert_expiry_date AS expiry_date
       WITH SYNONYMS ('credential expiration', 'cert end date')
       COMMENT = 'When certification expires',
     -- Feedback dimensions
@@ -270,7 +270,7 @@ CREATE OR REPLACE SEMANTIC VIEW SV_REVENUE_OPERATIONS_INTELLIGENCE
     orders.payment_status AS payment_status
       WITH SYNONYMS ('payment state', 'billing status')
       COMMENT = 'Payment status: PAID, PENDING, FAILED',
-    orders.channel AS order_channel
+    orders.order_channel AS channel
       WITH SYNONYMS ('sales channel', 'purchase channel')
       COMMENT = 'Channel: WEBSITE, MOBILE_APP, PHONE, CHAT',
     orders.has_payment_plan AS is_payment_plan
@@ -302,7 +302,7 @@ CREATE OR REPLACE SEMANTIC VIEW SV_REVENUE_OPERATIONS_INTELLIGENCE
     subscriptions.billing_frequency AS billing_frequency
       WITH SYNONYMS ('billing cycle', 'payment frequency')
       COMMENT = 'Billing frequency: MONTHLY, ANNUAL',
-    subscriptions.auto_renew AS auto_renew_enabled
+    subscriptions.auto_renew_enabled AS auto_renew
       WITH SYNONYMS ('automatic renewal', 'auto renew')
       COMMENT = 'Whether subscription auto-renews',
     -- Campaign dimensions
