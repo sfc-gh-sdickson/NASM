@@ -306,7 +306,8 @@ SELECT
 FROM EXAMS ex
 JOIN CERTIFICATION_TYPES ct ON ex.certification_type_id = ct.certification_type_id
 WHERE ex.passed = TRUE
-  AND ex.certification_issued_date IS NOT NULL;
+  AND ex.certification_issued_date IS NOT NULL
+  AND ex.certification_expiry_date IS NOT NULL;
 
 -- ============================================================================
 -- Step 9: Generate CEU Completions
