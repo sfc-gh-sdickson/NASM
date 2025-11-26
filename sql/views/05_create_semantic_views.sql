@@ -84,7 +84,7 @@ CREATE OR REPLACE SEMANTIC VIEW SV_STUDENT_CERTIFICATION_INTELLIGENCE
     students.education_level AS education_level
       WITH SYNONYMS ('degree level', 'academic level')
       COMMENT = 'Student education level',
-    students.current_occupation AS occupation
+    students.occupation AS current_occupation
       WITH SYNONYMS ('job title', 'current job', 'profession')
       COMMENT = 'Student current occupation',
     students.gym_affiliation AS gym_affiliation
@@ -427,52 +427,52 @@ CREATE OR REPLACE SEMANTIC VIEW SV_LEARNING_EXPERIENCE_INTELLIGENCE
       WITH SYNONYMS ('learner status', 'participation status')
       COMMENT = 'Account status for learning context',
     -- CEU course dimensions
-    ceu_courses.course_name AS ceu_course_name
+    ceu_courses.ceu_course_name AS course_name
       WITH SYNONYMS ('ceu title', 'continuing ed course')
       COMMENT = 'CEU course name',
-    ceu_courses.course_category AS ceu_category
+    ceu_courses.ceu_category AS course_category
       WITH SYNONYMS ('ceu type', 'continuing ed category')
       COMMENT = 'CEU category: CORRECTIVE_EXERCISE, NUTRITION, etc.',
-    ceu_courses.course_format AS ceu_format
+    ceu_courses.ceu_format AS course_format
       WITH SYNONYMS ('delivery method', 'course delivery')
       COMMENT = 'Format: ONLINE, WEBINAR, IN_PERSON',
-    ceu_courses.difficulty_level AS difficulty
+    ceu_courses.difficulty AS difficulty_level
       WITH SYNONYMS ('course level', 'complexity')
       COMMENT = 'Difficulty: BEGINNER, INTERMEDIATE, ADVANCED',
-    ceu_courses.ceu_credits AS credits_available
+    ceu_courses.credits_available AS ceu_credits
       WITH SYNONYMS ('credit value', 'ceu points')
       COMMENT = 'Number of CEU credits offered',
     -- CEU completion dimensions
-    ceu_completions.completion_status AS ceu_completion_status
+    ceu_completions.ceu_completion_status AS completion_status
       WITH SYNONYMS ('course progress status', 'ceu status')
       COMMENT = 'Status: COMPLETED, IN_PROGRESS, NOT_STARTED',
     ceu_completions.quiz_passed AS quiz_passed
       WITH SYNONYMS ('passed quiz', 'quiz success')
       COMMENT = 'Whether course quiz was passed',
-    ceu_completions.certificate_issued AS ceu_certificate_issued
+    ceu_completions.ceu_certificate_issued AS certificate_issued
       WITH SYNONYMS ('completion cert issued', 'ceu cert given')
       COMMENT = 'Whether completion certificate was issued',
     -- Support dimensions
     support.ticket_type AS ticket_type
-      WITH SYNONYMS ('issue type', 'support category')
+      WITH SYNONYMS ('issue type', 'support request type')
       COMMENT = 'Ticket type: TECHNICAL, BILLING, CERTIFICATION, etc.',
-    support.category AS support_category
+    support.support_category AS category
       WITH SYNONYMS ('issue category', 'help category')
       COMMENT = 'Support ticket category',
-    support.priority AS ticket_priority
+    support.ticket_priority AS priority
       WITH SYNONYMS ('urgency level', 'issue priority')
       COMMENT = 'Priority: LOW, MEDIUM, HIGH, URGENT',
     support.ticket_status AS ticket_status
       WITH SYNONYMS ('case status', 'support status')
       COMMENT = 'Status: OPEN, PENDING, RESOLVED',
-    support.channel AS support_channel
+    support.support_channel AS channel
       WITH SYNONYMS ('contact method', 'how contacted')
       COMMENT = 'Channel: EMAIL, PHONE, CHAT, SOCIAL',
     -- Instructor dimensions
     instructors.instructor_type AS instructor_type
       WITH SYNONYMS ('educator type', 'teacher category')
       COMMENT = 'Type: COURSE_AUTHOR, LIVE_INSTRUCTOR, MASTER_TRAINER',
-    instructors.specialty_areas AS instructor_specialty
+    instructors.instructor_specialty AS specialty_areas
       WITH SYNONYMS ('teaching specialty', 'expertise area')
       COMMENT = 'Instructor specialty areas',
     -- Feedback dimensions
